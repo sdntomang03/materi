@@ -1,2 +1,5 @@
 User-agent: *
-Disallow:
+Disallow: /admin/
+Disallow: /api/
+
+Sitemap: https://materi.sdntomang03.sch.id/sitemap.xml

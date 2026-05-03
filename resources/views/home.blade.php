@@ -4,7 +4,31 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>UjianPro - Platform Belajar Interaktif</title>
+
+    <!-- SEO Dasar -->
+    <title>UjianPro - Platform Belajar & Ujian Interaktif SD, SMP, SMA</title>
+    <meta name="description" content="Website belajar try out simulasi TKA | SD, SMP, SMA">
+    <meta name="keywords"
+        content="simulasi try out tka sd, smp, sma, latihan soal interaktif, materi belajar online, persiapan ujian, soal HOTS, pembahasan soal tka, platform belajar digital">
+    <meta name="author" content="UjianPro">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="{{ url()->current() }}">
+
+    <!-- Open Graph / Meta Facebook & WhatsApp -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:title" content="Website belajar try out simulasi TKA | SD, SMP, SMA">
+    <meta property="og:description"
+        content="Mulai belajar interaktif untuk jenjang SD, SMP, dan SMA. Dapatkan latihan soal HOTS dan persiapan ujian terbaik di UjianPro.">
+    <meta property="og:image" content="{{ asset('img/tut_wuri_handayani.png') }}">
+    <meta property="og:site_name" content="UjianPro">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Website belajar try out simulasi TKA | SD, SMP, SMA">
+    <meta name="twitter:description"
+        content="Mulai belajar interaktif untuk jenjang SD, SMP, dan SMA. Dapatkan latihan soal HOTS dan persiapan ujian terbaik di UjianPro.">
+    <meta name="twitter:image" content="{{ asset('img/tut_wuri_handayani.png') }}">
 
     <!-- Font & Icon -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -24,6 +48,7 @@
             background-size: 24px 24px;
         }
     </style>
+
 </head>
 
 <body class="antialiased text-slate-800 bg-slate-50 flex flex-col min-h-screen relative overflow-x-hidden">

@@ -6,7 +6,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>@yield('title', 'UjianPro - Platform Belajar')</title>
+    <!-- SEO Meta Tags Dinamis -->
+    <title>@yield('title', 'UjianPro - Platform Belajar Interaktif')</title>
+
+    <!-- Meta Description: Jika halaman tidak mengirimkan 'meta_description', gunakan teks default -->
+    <meta name="description"
+        content="@yield('meta_description', 'UjianPro adalah platform belajar interaktif dan ujian online untuk siswa SD, SMP, dan SMA. Tersedia materi lengkap dan soal HOTS terbaru.')">
+
+    <!-- Meta Keywords: Jika halaman tidak mengirimkan 'meta_keywords', gunakan teks default -->
+    <meta name="keywords"
+        content="@yield('meta_keywords', 'ujian online, belajar interaktif, try out, bank soal, soal sdn tomang 03')">
+
+    <meta name="author" content="Dian Nafi">
 
     <!-- Google Fonts & FontAwesome -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -74,8 +85,7 @@
         </div>
     </div>
 
-    <!-- Konten Utama Dinamis (Edge-to-Edge di Mobile) -->
-    <!-- PERUBAHAN: px-0 py-0 di mobile, agar menyentuh tepi layar -->
+    <!-- Konten Utama Dinamis -->
     <main class="flex-1 w-full max-w-7xl mx-auto py-0 sm:py-8 px-0 sm:px-6 lg:px-8">
         @yield('content')
     </main>
@@ -130,7 +140,6 @@
                     }
                 });
             }
-
         });
     </script>
 </body>

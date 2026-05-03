@@ -19,6 +19,9 @@ return new class extends Migration
             $table->string('title'); // Judul materi
             $table->string('slug')->unique();
             $table->longText('content')->nullable(); // Tempat menyimpan HTML + Tailwind
+            $table->string('meta_description')->nullable()->default(null); // Meta description untuk SEO
+            $table->string('meta_keywords')->nullable()->default(null); // Meta keywords untuk SEO
+
             $table->integer('order_num')->default(0); // Urutan materi dalam bab
             $table->timestamps();
         });

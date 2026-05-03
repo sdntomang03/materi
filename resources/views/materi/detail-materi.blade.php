@@ -1,7 +1,12 @@
 @extends('layouts.materi')
 
 @section('title', ($material->title ?? 'Materi') . ' - UjianPro')
+<!-- Mengisi Meta Description dari Database -->
+@section('meta_description', $material->meta_description ?? 'Pelajari ' . $subject->name . ' dengan materi lengkap dan
+latihan soal ujian.')
 
+<!-- Mengisi Meta Keywords dari Database -->
+@section('meta_keywords', $material->meta_keywords ?? strtolower($subject->name) . ', belajar online, soal ujian')
 @section('content')
 <div class="relative pt-8 pb-20 bg-slate-50 min-h-screen flex-1">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
