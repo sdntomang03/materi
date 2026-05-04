@@ -53,7 +53,7 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->grou
     Route::post('/import', [ImportController::class, 'store'])->name('import.store');
 });
 
-Route::prefix('admin/courses')->name('admin.courses.')->group(function () {
+Route::middleware(['auth', 'role:admin'])->prefix('admin/courses')->name('admin.courses.')->group(function () {
 
     // --- CRUD BAB (Chapter) ---
     // Create: Butuh subject_id (Mapel) sebagai induk
