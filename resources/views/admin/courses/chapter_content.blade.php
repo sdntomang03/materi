@@ -310,26 +310,40 @@
 
             <!-- MATERI BACAAN -->
             <div>
-                <div class="flex items-center justify-between mb-6">
+                <div class="flex flex-wrap items-center justify-between mb-6 gap-3">
                     <h2 class="text-2xl font-black text-slate-800 flex items-center gap-3">
                         <div
                             class="w-10 h-10 bg-indigo-100 text-indigo-600 rounded-xl flex items-center justify-center text-lg">
-                            <i class="fas fa-file-alt"></i></div> Materi Bacaan
+                            <i class="fas fa-file-alt"></i>
+                        </div> Materi Bacaan
                     </h2>
-                    <button
-                        @click="openModal('{{ route('admin.courses.material.store', $chapter->id) }}', false, '', '')"
-                        class="bg-indigo-50 hover:bg-indigo-600 text-indigo-600 hover:text-white px-4 py-2 rounded-xl font-bold text-sm transition-colors">
-                        <i class="fas fa-plus mr-1"></i> Tambah
-                    </button>
+
+                    <!-- TAMBAHAN: Tombol Atur Urutan dan Tambah Materi -->
+                    <div class="flex gap-2">
+                        @if($chapter->materials->count() > 1)
+                        <a href="{{ route('admin.courses.material.sort', $chapter->id) }}"
+                            class="bg-white border border-slate-200 hover:bg-slate-50 text-slate-600 px-4 py-2 rounded-xl font-bold text-sm transition-colors shadow-sm inline-flex items-center">
+                            <i class="fas fa-sort-numeric-down mr-2"></i> Urutkan
+                        </a>
+                        @endif
+
+                        <button
+                            @click="openModal('{{ route('admin.courses.material.store', $chapter->id) }}', false, '', '')"
+                            class="bg-indigo-50 hover:bg-indigo-600 text-indigo-600 hover:text-white px-4 py-2 rounded-xl font-bold text-sm transition-colors">
+                            <i class="fas fa-plus mr-1"></i> Tambah
+                        </button>
+                    </div>
                 </div>
                 <div class="space-y-4">
-                    @forelse($chapter->materials as $material)
+                    <!-- Pastikan materi dilooping berdasarkan order_num yang baru -->
+                    @forelse($chapter->materials->sortBy('order_num') as $material)
                     <div
                         class="bg-white p-5 rounded-2xl border border-slate-200 hover:border-indigo-300 transition-all flex items-center justify-between">
                         <div class="flex items-center gap-4">
                             <div
                                 class="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center text-slate-400">
-                                <i class="fas fa-book-reader"></i></div>
+                                <span class="font-bold text-sm">{{ $material->order_num }}</span>
+                            </div>
                             <div>
                                 <h3 class="font-bold text-slate-800">{{ $material->title }}</h3>
                                 <p class="text-xs text-slate-500 mt-1">Dibuat pada {{ $material->created_at->format('d M
@@ -367,7 +381,8 @@
                     <h2 class="text-2xl font-black text-slate-800 flex items-center gap-3">
                         <div
                             class="w-10 h-10 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center text-lg">
-                            <i class="fas fa-tasks"></i></div> Latihan Soal
+                            <i class="fas fa-tasks"></i>
+                        </div> Latihan Soal
                     </h2>
                     <button
                         @click="openLatihan('{{ route('admin.courses.exercise.store', $chapter->id) }}', false, '', '')"
@@ -382,7 +397,8 @@
                         <div class="flex items-center gap-4">
                             <div
                                 class="w-12 h-12 rounded-full bg-slate-50 flex items-center justify-center text-slate-400">
-                                <i class="fas fa-pencil-ruler"></i></div>
+                                <i class="fas fa-pencil-ruler"></i>
+                            </div>
                             <div>
                                 <h3 class="font-bold text-slate-800">{{ $exercise->title }}</h3>
                                 @php
@@ -820,7 +836,7 @@
                                     <img :src="q.image" class="w-full max-h-64 object-contain bg-slate-50">
                                 </div>
 
-                                <!-- Teks Soal (HARUS x-html AGAR KaTeX JALAN) -->
+                                <!-- Teks Soal -->
                                 <div class="text-lg font-bold text-slate-800 mb-6 leading-relaxed" x-html="q.text">
                                 </div>
 

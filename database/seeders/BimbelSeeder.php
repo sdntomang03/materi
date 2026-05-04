@@ -51,6 +51,8 @@ class BimbelSeeder extends Seeder
             'chapter_id' => $bab1Math->id,
             'title' => 'Penjumlahan Pecahan Berpenyebut Sama',
             'slug' => Str::slug('Penjumlahan Pecahan Berpenyebut Sama'),
+            'meta_description' => 'Materi pecahan penjumlahan dan pengurangan pecahan berpenyebut sama.',
+            'meta_keywords' => 'penjumlahan pecahan, pecahan berpenyebut sama, materi matematika kelas 4 sd',
             'order_num' => 1,
             'content' => '
                 <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100">

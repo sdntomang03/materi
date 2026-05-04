@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\ChapterController;
 use App\Http\Controllers\Admin\CourseManagerController;
 use App\Http\Controllers\Admin\ExerciseController;
+use App\Http\Controllers\Admin\ImportController;
 use App\Http\Controllers\Admin\MaterialController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\SubjectController;
@@ -34,7 +35,7 @@ Route::get('/dashboard', function () {
 | RUTE ADMIN (Statis / Spesifik)
 |--------------------------------------------------------------------------
 */
-Route::prefix('admin')->name('admin.')->group(function () {
+Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/courses', [CourseManagerController::class, 'index'])->name('courses.index');
     Route::get('/courses/level/{level_id}', [CourseManagerController::class, 'showLevel'])->name('courses.level');
 
@@ -48,6 +49,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/courses/menu/{menu_id}/chapter/{chapter_id}', [CourseManagerController::class, 'showChapter'])
         ->name('courses.chapter');
     Route::post('/upload-image', [UploadController::class, 'uploadImage'])->name('upload.image');
+    Route::get('/import', [ImportController::class, 'index'])->name('import.index');
+    Route::post('/import', [ImportController::class, 'store'])->name('import.store');
 });
 
 Route::prefix('admin/courses')->name('admin.courses.')->group(function () {
@@ -68,7 +71,8 @@ Route::prefix('admin/courses')->name('admin.courses.')->group(function () {
     Route::get('/material/{material_id}/edit', [MaterialController::class, 'edit'])->name('material.edit');
     Route::put('/material/{material_id}', [MaterialController::class, 'update'])->name('material.update');
     Route::delete('/material/{material_id}', [MaterialController::class, 'destroy'])->name('material.destroy');
-
+    Route::get('/chapters/{chapter_id}/materials/sort', [MaterialController::class, 'sortIndex'])->name('material.sort');
+    Route::post('/chapters/{chapter_id}/materials/reorder', [MaterialController::class, 'reorder'])->name('material.reorder');
     // --- CRUD MATA PELAJARAN (SUBJECT) ---
     // Simpan Mapel (Butuh ID Kelas/Grade)
     Route::post('/grade/{grade_id}/subject', [SubjectController::class, 'store'])->name('subject.store');
