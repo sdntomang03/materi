@@ -22,29 +22,7 @@
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <!-- Notifikasi Sukses -->
-        @if(session('success'))
-        <div
-            class="mb-6 bg-emerald-50 border border-emerald-200 text-emerald-700 px-4 py-3 rounded-xl flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <i class="fas fa-check-circle text-emerald-500"></i>
-                <span class="font-medium">{{ session('success') }}</span>
-            </div>
-            <button onclick="this.parentElement.style.display='none'"><i
-                    class="fas fa-times text-emerald-500"></i></button>
-        </div>
-        @endif
 
-        <!-- Error Validasi -->
-        @if($errors->any())
-        <div class="mb-6 bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-xl">
-            <ul class="list-disc list-inside text-sm">
-                @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-        @endif
 
         <!-- Tombol Kembali ke Pilihan Menu -->
         <a href="{{ route('admin.courses.grade.menus', $grade->id) }}"

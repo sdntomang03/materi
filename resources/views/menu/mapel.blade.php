@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.materi')
 
 @section('title', 'Pilih Mapel - UjianPro')
 

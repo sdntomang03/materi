@@ -104,7 +104,16 @@
             <p class="text-slate-300 text-xs mt-1">Dikembangkan untuk SDN Tomang 03 Pagi</p>
         </div>
     </footer>
+    <a href="https://chat.whatsapp.com/KQnupphQ9DmCIixaFZpNWk" target="_blank" rel="noopener noreferrer"
+        class="fixed bottom-6 right-6 z-50 bg-green-500 text-white rounded-full flex items-center gap-2 px-4 py-2 shadow-lg hover:bg-green-600 hover:-translate-y-1 hover:shadow-green-500/50 transition-all duration-300"
+        aria-label="Bergabung ke Grup WhatsApp">
 
+        <!-- Ikon WhatsApp (Ukuran diperkecil menjadi text-lg) -->
+        <i class="fab fa-whatsapp text-lg"></i>
+
+        <!-- Teks -->
+        <span class="font-bold text-sm tracking-wide">Bergabung</span>
+    </a>
     <!-- JAVASCRIPT GLOBAL -->
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
@@ -142,6 +151,7 @@
             }
         });
     </script>
+
 </body>
 
 </html>

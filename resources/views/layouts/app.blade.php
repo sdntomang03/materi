@@ -34,6 +34,7 @@
         <!-- Page Content -->
         @yield('content')
     </div>
+    <x-sweet-alert />
 </body>
 
 </html>
