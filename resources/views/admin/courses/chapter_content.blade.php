@@ -451,7 +451,7 @@
         <div x-show="openMaterialModal" x-transition.opacity
             class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm transition-opacity"></div>
         <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-            <div x-show="openMaterialModal" @click.away="openMaterialModal = false"
+            <div x-show="openMaterialModal"
                 class="relative transform overflow-hidden rounded-[2rem] bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-4xl border border-slate-200">
                 <div class="bg-white px-6 pb-4 pt-6 sm:p-8 sm:pb-6">
                     <div class="flex items-center justify-between mb-6">
